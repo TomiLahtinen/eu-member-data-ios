@@ -35,15 +35,17 @@ class CountriesViewController: UIViewController {
 extension CountriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel?.model?.countries.count ?? 0
+        return self.viewModel?.model?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = countriesTable.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CountryCell
-        let country = viewModel?.model?.countries[indexPath.row]
-        cell.nameLabel.text = country?.name.en
-        cell.capitalLabel.text = country?.capital.name.en
-        cell.imageView?.image = CountryCell.flag
+        guard let country = viewModel?.model?[indexPath.row] else {
+            fatalError("No such country")
+        }
+        cell.nameLabel.text = country.name["en"] ?? "Unknown"
+        cell.capitalLabel.text = country.capital.name["en"] ?? "Unknown"
+        cell.imageView?.image = Flag.of(country.code)
         return cell
     }
 }
@@ -54,5 +56,4 @@ class CountryCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var capitalLabel: UILabel!
     
-    static let flag = #imageLiteral(resourceName: "EU Flag")
 }

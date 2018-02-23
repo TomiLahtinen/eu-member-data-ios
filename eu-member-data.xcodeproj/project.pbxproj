@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5635174A20404B7E008588D6 /* Flags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5635174920404B7E008588D6 /* Flags.swift */; };
 		56ECC1BB203DC856009D1FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1BA203DC856009D1FA9 /* AppDelegate.swift */; };
 		56ECC1BD203DC856009D1FA9 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1BC203DC856009D1FA9 /* CountriesViewController.swift */; };
 		56ECC1C0203DC856009D1FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1BE203DC856009D1FA9 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5635174920404B7E008588D6 /* Flags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flags.swift; sourceTree = "<group>"; };
 		56ECC1B7203DC856009D1FA9 /* eu-member-data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eu-member-data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56ECC1BA203DC856009D1FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56ECC1BC203DC856009D1FA9 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5635174820404B6B008588D6 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5635174920404B7E008588D6 /* Flags.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		56ECC1AE203DC856009D1FA9 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		56ECC1B9203DC856009D1FA9 /* eu-member-data */ = {
 			isa = PBXGroup;
 			children = (
+				5635174820404B6B008588D6 /* Commons */,
 				56ECC1EF203DF9BD009D1FA9 /* ViewModel */,
 				56ECC1EE203DF752009D1FA9 /* View */,
 				56ECC1EB203DF5E0009D1FA9 /* Model */,
@@ -303,6 +314,7 @@
 			files = (
 				56ECC1F3203DFD40009D1FA9 /* Country.swift in Sources */,
 				56ECC1F1203DF9E6009D1FA9 /* CountriesViewModel.swift in Sources */,
+				5635174A20404B7E008588D6 /* Flags.swift in Sources */,
 				56ECC1BD203DC856009D1FA9 /* CountriesViewController.swift in Sources */,
 				56ECC1BB203DC856009D1FA9 /* AppDelegate.swift in Sources */,
 			);
@@ -471,7 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YU4AFJ6SHS;
+				DEVELOPMENT_TEAM = F4WY84DJNW;
 				INFOPLIST_FILE = "eu-member-data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.solita.mobildev.eu-member-data";
@@ -486,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YU4AFJ6SHS;
+				DEVELOPMENT_TEAM = F4WY84DJNW;
 				INFOPLIST_FILE = "eu-member-data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "fi.solita.mobildev.eu-member-data";

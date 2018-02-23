@@ -10,7 +10,7 @@ import Foundation
 
 class CountriesViewModel {
     
-    var model: Country?
+    var model: Countries?
     let completed: () -> ()
     
     init(completed: @escaping () -> () = { }) {
@@ -22,7 +22,7 @@ class CountriesViewModel {
             if let path = Bundle.main.path(forResource: "eudata", ofType: "json") {
                 do {
                     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                    self.model = Country.from(data: data)!
+                    try? self.model = Countries.init(data: data)
                     self.completed()
                 } catch {
                     fatalError("Error reading file")

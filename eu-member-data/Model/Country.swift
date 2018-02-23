@@ -1,190 +1,222 @@
 // To parse the JSON, add this file to your project and do:
 //
-//   let country = Country.from(json: jsonString)!
+//   let countries = try Countries(json)
 
 import Foundation
 
-typealias Country = OtherCountry
+typealias Countries = [CountryElement]
 
-struct OtherCountry: Codable {
-    let countries: [OtherOtherCountry]
-}
-
-struct OtherOtherCountry: Codable {
-    let currency: String
+struct CountryElement: Codable {
+    let code: String
+    let name: [String: String]
     let capital: Capital
     let area: Int
-    let code: String
-    let name: Name
-    let joined: Joined
     let population: Population
+    let currency: String
+    let joined: Joined
+    
+    enum CodingKeys: String, CodingKey {
+        case code = "code"
+        case name = "name"
+        case capital = "capital"
+        case area = "area"
+        case population = "population"
+        case currency = "currency"
+        case joined = "joined"
+    }
 }
 
 struct Capital: Codable {
+    let name: [String: String]
     let coordinate: Coordinate
-    let name: Name
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case coordinate = "coordinate"
+    }
 }
 
 struct Coordinate: Codable {
-    let latitude: Double
     let longitude: Double
-}
-
-struct Name: Codable {
-    let et: String
-    let lt: String?
-    let de: String
-    let cs: String
-    let bg: String
-    let da: String
-    let en: String
-    let el: String
-    let es: String?
-    let gr: String?
-    let fr: String
-    let fi: String
-    let ga: String?
-    let hu: String
-    let hr: String
-    let it: String
-    let pl: String
-    let mt: String
-    let lv: String
-    let nl: String
-    let ro: String
-    let sl: String
-    let pt: String
-    let sk: String
-    let sv: String
+    let latitude: Double
+    
+    enum CodingKeys: String, CodingKey {
+        case longitude = "longitude"
+        case latitude = "latitude"
+    }
 }
 
 struct Joined: Codable {
-    let schengen: String
-    let euro: String
     let union: String
+    let euro: String
+    let schengen: String
+    
+    enum CodingKeys: String, CodingKey {
+        case union = "union"
+        case euro = "euro"
+        case schengen = "schengen"
+    }
 }
 
 struct Population: Codable {
     let population: Int
     let year: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case population = "population"
+        case year = "year"
+    }
 }
 
-// Serialization extensions
+// MARK: Convenience initializers
 
-extension OtherCountry {
-    static func from(json: String, using encoding: String.Encoding = .utf8) -> OtherCountry? {
-        guard let data = json.data(using: encoding) else { return nil }
-        return OtherCountry.from(data: data)
+extension CountryElement {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(CountryElement.self, from: data)
     }
-
-    static func from(data: Data) -> OtherCountry? {
-        let decoder = JSONDecoder()
-        return try? decoder.decode(OtherCountry.self, from: data)
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
     }
-
-    var jsonData: Data? {
-        let encoder = JSONEncoder()
-        return try? encoder.encode(self)
+    
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
     }
-
-    var jsonString: String? {
-        guard let data = self.jsonData else { return nil }
-        return String(data: data, encoding: .utf8)
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 extension Capital {
-    enum CodingKeys: String, CodingKey {
-        case coordinate
-        case name
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Capital.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 extension Coordinate {
-    enum CodingKeys: String, CodingKey {
-        case latitude
-        case longitude
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Coordinate.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 extension Joined {
-    enum CodingKeys: String, CodingKey {
-        case schengen
-        case euro
-        case union
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Joined.self, from: data)
     }
-}
-
-extension Name {
-    enum CodingKeys: String, CodingKey {
-        case et
-        case lt
-        case de
-        case cs
-        case bg
-        case da
-        case en
-        case el
-        case es
-        case gr
-        case fr
-        case fi
-        case ga
-        case hu
-        case hr
-        case it
-        case pl
-        case mt
-        case lv
-        case nl
-        case ro
-        case sl
-        case pt
-        case sk
-        case sv
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
     }
-}
-
-extension OtherCountry {
-    enum CodingKeys: String, CodingKey {
-        case countries
+    
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
     }
-}
-
-extension OtherOtherCountry {
-    enum CodingKeys: String, CodingKey {
-        case currency
-        case capital
-        case area
-        case code
-        case name
-        case joined
-        case population
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
 
 extension Population {
-    enum CodingKeys: String, CodingKey {
-        case population
-        case year
-    }
-}
-
-// Helpers
-
-class JSONNull: Codable {
-    public init() {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Population.self, from: data)
     }
     
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
+        try self.init(data: data)
     }
     
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
     }
 }
+
+extension Array where Element == Countries.Element {
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(Countries.self, from: data)
+    }
+    
+    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
+        guard let data = json.data(using: encoding) else {
+            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
+        }
+        try self.init(data: data)
+    }
+    
+    init(fromURL url: URL) throws {
+        try self.init(data: try Data(contentsOf: url))
+    }
+    
+    func jsonData() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
+        return String(data: try self.jsonData(), encoding: encoding)
+    }
+}
+
