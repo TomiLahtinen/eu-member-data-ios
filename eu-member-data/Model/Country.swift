@@ -4,9 +4,9 @@
 
 import Foundation
 
-typealias Countries = [CountryElement]
+typealias Countries = [Country]
 
-struct CountryElement: Codable {
+struct Country: Codable {
     let code: String
     let name: [String: String]
     let capital: Capital
@@ -70,9 +70,9 @@ struct Population: Codable {
 
 // MARK: Convenience initializers
 
-extension CountryElement {
+extension Country {
     init(data: Data) throws {
-        self = try JSONDecoder().decode(CountryElement.self, from: data)
+        self = try JSONDecoder().decode(Country.self, from: data)
     }
     
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
