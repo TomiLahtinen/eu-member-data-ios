@@ -27,20 +27,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UsB-NL-kGf">
-                                            <rect key="frame" x="16" y="0.0" width="59.5" height="39.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UsB-NL-kGf">
+                                            <rect key="frame" x="16" y="8" width="36" height="23.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="UsB-NL-kGf" secondAttribute="height" multiplier="3:2" priority="999" id="cYJ-uG-w4U"/>
+                                                <constraint firstAttribute="width" secondItem="UsB-NL-kGf" secondAttribute="height" multiplier="3:2" id="u07-DF-hcu"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finland" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="211-cG-g8V">
-                                            <rect key="frame" x="83.5" y="2" width="275.5" height="20"/>
+                                            <rect key="frame" x="60" y="2" width="299" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tampere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe1-0A-3pV">
-                                            <rect key="frame" x="83.5" y="22" width="275.5" height="17.5"/>
+                                            <rect key="frame" x="60" y="22" width="299" height="17.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.3864099395045093" green="0.3864099395045093" blue="0.3864099395045093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="211-cG-g8V" secondAttribute="trailing" constant="16" id="2ve-eh-E2s"/>
                                         <constraint firstItem="xe1-0A-3pV" firstAttribute="bottom" secondItem="utR-S8-x0i" secondAttribute="bottom" id="DXh-7k-PXB"/>
-                                        <constraint firstItem="UsB-NL-kGf" firstAttribute="height" secondItem="utR-S8-x0i" secondAttribute="height" id="HXd-Nw-e4z"/>
+                                        <constraint firstItem="UsB-NL-kGf" firstAttribute="height" secondItem="utR-S8-x0i" secondAttribute="height" multiplier="0.6" id="HXd-Nw-e4z"/>
                                         <constraint firstItem="xe1-0A-3pV" firstAttribute="top" secondItem="211-cG-g8V" secondAttribute="bottom" id="PqF-XX-r64"/>
                                         <constraint firstItem="xe1-0A-3pV" firstAttribute="leading" secondItem="UsB-NL-kGf" secondAttribute="trailing" constant="8" id="SF9-0Z-eOe"/>
                                         <constraint firstItem="211-cG-g8V" firstAttribute="leading" secondItem="UsB-NL-kGf" secondAttribute="trailing" constant="8" id="WAl-rv-flY"/>
@@ -62,7 +62,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="capitalLabel" destination="xe1-0A-3pV" id="t3I-Yt-UYf"/>
-                                    <outlet property="flagImage" destination="utR-S8-x0i" id="VcK-Wx-XN9"/>
+                                    <outlet property="flagImageView" destination="UsB-NL-kGf" id="NKJ-fW-7jx"/>
                                     <outlet property="nameLabel" destination="211-cG-g8V" id="ulK-WX-MFn"/>
                                 </connections>
                             </tableViewCell>

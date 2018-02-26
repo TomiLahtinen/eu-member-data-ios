@@ -13,7 +13,7 @@ class CountriesViewModel {
     var model: Countries?
     let completed: () -> ()
     
-    init(completed: @escaping () -> () = { }) {
+    init(completed: @escaping () -> () = {/* NOP */}) {
         self.completed = completed
     }
     

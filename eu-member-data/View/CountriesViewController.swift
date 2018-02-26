@@ -11,27 +11,24 @@ import UIKit
 class CountriesViewController: UIViewController {
 
     @IBOutlet var countriesTable: UITableView!
-    
     var viewModel: CountriesViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Setup delegate and data source for table view
         countriesTable.dataSource = self
         countriesTable.rowHeight = 50
         
+        // Setup view model and load initial data
         viewModel = CountriesViewModel() {
             self.countriesTable.reloadData()
         }
         viewModel?.loadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
+// MARK: - UITableViewDataSource implementation
 extension CountriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,14 +42,15 @@ extension CountriesViewController: UITableViewDataSource {
         }
         cell.nameLabel.text = country.name["en"] ?? "Unknown"
         cell.capitalLabel.text = country.capital.name["en"] ?? "Unknown"
-        cell.imageView?.image = Flag.of(country.code)
+        cell.flagImageView.image = Flag.of(country.code)
         return cell
     }
 }
 
+// MARK: - UITableViewCell implementation
 class CountryCell: UITableViewCell {
     
-    @IBOutlet weak var flagImage: UIView!
+    @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var capitalLabel: UILabel!
     
