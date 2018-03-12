@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UsB-NL-kGf">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FI" translatesAutoresizingMaskIntoConstraints="NO" id="UsB-NL-kGf">
                                             <rect key="frame" x="16" y="8" width="36" height="23.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="UsB-NL-kGf" secondAttribute="height" multiplier="3:2" id="u07-DF-hcu"/>
@@ -75,7 +75,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQs-29-HRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13.6" y="8.5457271364317844"/>
+            <point key="canvasLocation" x="-718" y="-421"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FI" width="1000" height="611"/>
+    </resources>
 </document>

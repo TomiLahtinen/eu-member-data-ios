@@ -17,4 +17,6 @@ class Flag {
     static func of(_ countryCode: String) -> UIImage {
         return UIImage(named: countryCode + Flag.SUFFIX) ?? Flag.EU_FLAG
     }
+    
+    
 }
