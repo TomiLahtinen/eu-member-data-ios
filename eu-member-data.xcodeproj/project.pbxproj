@@ -18,6 +18,7 @@
 		56ECC1EA203DC870009D1FA9 /* eudata.json in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1E9203DC870009D1FA9 /* eudata.json */; };
 		56ECC1F1203DF9E6009D1FA9 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1F0203DF9E6009D1FA9 /* CountriesViewModel.swift */; };
 		56ECC1F3203DFD40009D1FA9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1F2203DFD40009D1FA9 /* Country.swift */; };
+		6F96153A2069252B00EA94F1 /* SortByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9615392069252B00EA94F1 /* SortByViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		56ECC1E9203DC870009D1FA9 /* eudata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eudata.json; sourceTree = "<group>"; };
 		56ECC1F0203DF9E6009D1FA9 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
 		56ECC1F2203DFD40009D1FA9 /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		6F9615392069252B00EA94F1 /* SortByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				56ECC1BC203DC856009D1FA9 /* CountriesViewController.swift */,
 				56ECC1BE203DC856009D1FA9 /* Main.storyboard */,
 				56ECC1C3203DC856009D1FA9 /* LaunchScreen.storyboard */,
+				6F9615392069252B00EA94F1 /* SortByViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				56ECC1F3203DFD40009D1FA9 /* Country.swift in Sources */,
 				56ECC1F1203DF9E6009D1FA9 /* CountriesViewModel.swift in Sources */,
 				5635174A20404B7E008588D6 /* Flags.swift in Sources */,
+				6F96153A2069252B00EA94F1 /* SortByViewController.swift in Sources */,
 				56ECC1BD203DC856009D1FA9 /* CountriesViewController.swift in Sources */,
 				56ECC1BB203DC856009D1FA9 /* AppDelegate.swift in Sources */,
 			);
