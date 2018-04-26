@@ -26,6 +26,30 @@ class CountriesViewController: UIViewController {
         }
         viewModel?.loadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectSort" {
+            let vc = segue.destination as! SortByViewController
+            vc.delegate = self
+        }
+    }
+    
+}
+
+extension CountriesViewController: SortByDelegate {
+    func selected(_ sort: Sort) {
+        debugPrint(sort)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+        
+        // TODO: Sort countries in view model by key and direction
+        
+        //self.countriesTable.reloadData()
+    }
+    
+    func cancelled() {
+        debugPrint("cancelled")
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableViewDataSource implementation
