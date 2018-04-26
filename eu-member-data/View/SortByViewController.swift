@@ -10,6 +10,15 @@ enum SortKey: Int {
 enum SortDirection: Int {
     case up
     case down
+    
+    func asComparisonResult() -> ComparisonResult {
+        switch self {
+        case .up:
+            return .orderedAscending
+        case .down:
+            return .orderedDescending
+        }
+    }
 }
 
 typealias Sort = (key: SortKey, direction: SortDirection)

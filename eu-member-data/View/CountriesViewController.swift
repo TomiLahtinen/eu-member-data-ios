@@ -42,7 +42,7 @@ extension CountriesViewController: SortByDelegate {
         self.navigationController?.dismiss(animated: true, completion: nil)
         
         // TODO: Sort countries in view model by key and direction
-        
+        viewModel?.sort(sort)
         //self.countriesTable.reloadData()
     }
     
