@@ -32,6 +32,14 @@ class CountriesViewController: UIViewController {
             let vc = segue.destination as! SortByViewController
             vc.delegate = self
         }
+        if segue.identifier == "countryDetailSegue" {
+            let vc = segue.destination as! CountryDetailViewController
+            guard let country = viewModel?.model![(countriesTable.indexPathForSelectedRow?.row)!] else {
+                debugPrint("No such country :/")
+                return
+            }
+            vc.country = country
+        }
     }
     
 }
