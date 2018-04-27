@@ -87,6 +87,10 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         return viewModel?.capitalDistances?.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Distances"
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let capitalDistance = viewModel?.capitalDistances![indexPath.row]

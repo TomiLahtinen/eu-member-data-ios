@@ -272,7 +272,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9LP-00-OHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="-637"/>
+            <point key="canvasLocation" x="1598" y="-688"/>
+        </scene>
+        <!--Wikipedia-->
+        <scene sceneID="wHR-X7-2Oa">
+            <objects>
+                <viewController storyboardIdentifier="wikipediaViewController" title="Wikipedia" id="FOF-ZU-bz6" customClass="WikipediaViewController" customModule="eu_member_data" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xB-vp-6YH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kc-ER-vFH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2kc-ER-vFH" firstAttribute="trailing" secondItem="m2c-50-6Gr" secondAttribute="trailing" id="CPd-uR-Cmg"/>
+                            <constraint firstItem="2kc-ER-vFH" firstAttribute="top" secondItem="m2c-50-6Gr" secondAttribute="top" id="Fbl-cv-ChS"/>
+                            <constraint firstItem="2kc-ER-vFH" firstAttribute="bottom" secondItem="m2c-50-6Gr" secondAttribute="bottom" id="YNy-7I-ZHk"/>
+                            <constraint firstItem="2kc-ER-vFH" firstAttribute="leading" secondItem="m2c-50-6Gr" secondAttribute="leading" id="bXx-Mn-aVX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m2c-50-6Gr"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="2kc-ER-vFH" id="VPc-nO-Bny"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ixx-DS-K9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="-689"/>
         </scene>
         <!--Country Detail Table View Controller-->
         <scene sceneID="mUp-MT-11E">

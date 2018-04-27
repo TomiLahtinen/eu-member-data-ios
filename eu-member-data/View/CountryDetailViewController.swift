@@ -92,6 +92,9 @@ class CountryDetailTableViewController: UITableViewController {
         if dataRow.title == "Name" {
             instantiateAndPresentMapView()
         }
+        if dataRow.title == "Wikipedia" {
+            instantiateAndPresentWikipediaView()
+        }
     }
     
     private func instantiateAndPresentMapView() {
@@ -103,5 +106,16 @@ class CountryDetailTableViewController: UITableViewController {
         }
         mapViewController.country = self.country
         self.navigationController?.pushViewController(mapViewController, animated: true)
+    }
+    
+    private func instantiateAndPresentWikipediaView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "wikipediaViewController")
+        guard let wikiVC = controller as? WikipediaViewController else {
+            debugPrint("We have some serious issues with WikipediaViewController")
+            fatalError()
+        }
+        wikiVC.country = self.country
+        self.navigationController?.pushViewController(wikiVC, animated: true)
     }
 }

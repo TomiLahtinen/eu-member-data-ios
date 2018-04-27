@@ -58,7 +58,9 @@ class CountryViewModel {
         return [("Area", String(country.area), false),
                 ("Population", String(country.population.population) + " (" + String(country.population.year) + ")", false),
                 ("Country Code", country.code, false),
-                ("Currency", country.currency, false)]
+                ("Currency", country.currency, false),
+                ("Wikipedia", country.name[Utils.userLang]!, true)
+        ]
     }
     
     private var capitalData: [CountryDataRow] {
