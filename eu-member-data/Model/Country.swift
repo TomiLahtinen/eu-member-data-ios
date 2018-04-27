@@ -26,7 +26,7 @@ struct Country: Codable {
     }
 }
 
-struct Capital: Codable {
+struct Capital: Codable, Equatable {
     let name: [String: String]
     let coordinate: Coordinate
     
@@ -218,5 +218,9 @@ extension Array where Element == Countries.Element {
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
         return String(data: try self.jsonData(), encoding: encoding)
     }
+}
+
+func ==(lhs: Capital, rhs: Capital) -> Bool {
+    return lhs.coordinate.latitude == rhs.coordinate.latitude && lhs.coordinate.longitude == rhs.coordinate.longitude
 }
 

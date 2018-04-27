@@ -85,4 +85,23 @@ class CountryDetailTableViewController: UITableViewController {
         cell?.detailTextLabel?.text = countryDataRow.value
         return cell!
     }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let data = viewModel?.data(in: Section(rawValue: indexPath.section)!)
+        let dataRow = data![indexPath.row]
+        if dataRow.title == "Name" {
+            instantiateAndPresentMapView()
+        }
+    }
+    
+    private func instantiateAndPresentMapView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "mapViewController")
+        guard let mapViewController = controller as? MapViewController else {
+            debugPrint("We have some serious issues with MapViewController")
+            fatalError()
+        }
+        mapViewController.country = self.country
+        self.navigationController?.pushViewController(mapViewController, animated: true)
+    }
 }

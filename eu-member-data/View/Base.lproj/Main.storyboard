@@ -211,6 +211,69 @@
             </objects>
             <point key="canvasLocation" x="-718.39999999999998" y="-421.88905547226392"/>
         </scene>
+        <!--Map View-->
+        <scene sceneID="H52-yq-aTJ">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" title="Map View" id="YIv-SD-elu" customClass="MapViewController" customModule="eu_member_data" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c4J-K2-iD7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVe-1z-AdD">
+                                <rect key="frame" x="0.0" y="20" width="375" height="334"/>
+                            </mapView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V52-gq-7TG">
+                                <rect key="frame" x="0.0" y="354" width="375" height="313"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuK-UK-lfA" userLabel="Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="313.5"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ROk-Tr-jnx">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="313.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="ROk-Tr-jnx" firstAttribute="top" secondItem="FuK-UK-lfA" secondAttribute="top" id="23j-a6-Sag"/>
+                                            <constraint firstItem="ROk-Tr-jnx" firstAttribute="leading" secondItem="FuK-UK-lfA" secondAttribute="leading" id="9vL-aA-QGb"/>
+                                            <constraint firstAttribute="trailing" secondItem="ROk-Tr-jnx" secondAttribute="trailing" id="FGl-pA-1RE"/>
+                                            <constraint firstAttribute="bottom" secondItem="ROk-Tr-jnx" secondAttribute="bottom" id="wBF-rY-AS1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FuK-UK-lfA" firstAttribute="leading" secondItem="V52-gq-7TG" secondAttribute="leading" id="Av0-RI-cvN"/>
+                                    <constraint firstItem="FuK-UK-lfA" firstAttribute="centerY" secondItem="V52-gq-7TG" secondAttribute="centerY" id="Lyp-YR-baZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FuK-UK-lfA" secondAttribute="bottom" id="vNC-Sq-hXF"/>
+                                    <constraint firstAttribute="trailing" secondItem="FuK-UK-lfA" secondAttribute="trailing" id="wkp-HE-cAW"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wc4-dm-ljW" firstAttribute="trailing" secondItem="V52-gq-7TG" secondAttribute="trailing" id="1tf-rl-tqA"/>
+                            <constraint firstItem="FuK-UK-lfA" firstAttribute="top" secondItem="RVe-1z-AdD" secondAttribute="bottom" id="FRE-z1-8H5"/>
+                            <constraint firstItem="V52-gq-7TG" firstAttribute="top" secondItem="RVe-1z-AdD" secondAttribute="bottom" id="NwS-ju-vZT"/>
+                            <constraint firstItem="RVe-1z-AdD" firstAttribute="leading" secondItem="Wc4-dm-ljW" secondAttribute="leading" id="UKz-NB-CJq"/>
+                            <constraint firstItem="V52-gq-7TG" firstAttribute="leading" secondItem="Wc4-dm-ljW" secondAttribute="leading" id="WoH-0s-Fsw"/>
+                            <constraint firstItem="Wc4-dm-ljW" firstAttribute="trailing" secondItem="RVe-1z-AdD" secondAttribute="trailing" id="Y7x-bo-vSB"/>
+                            <constraint firstItem="RVe-1z-AdD" firstAttribute="top" secondItem="Wc4-dm-ljW" secondAttribute="top" id="Zlu-7n-06F"/>
+                            <constraint firstItem="FuK-UK-lfA" firstAttribute="centerX" secondItem="Wc4-dm-ljW" secondAttribute="centerX" id="ZwW-QM-gCh"/>
+                            <constraint firstItem="RVe-1z-AdD" firstAttribute="height" secondItem="c4J-K2-iD7" secondAttribute="height" multiplier="0.5" id="cQm-Ld-EyC"/>
+                            <constraint firstItem="Wc4-dm-ljW" firstAttribute="bottom" secondItem="V52-gq-7TG" secondAttribute="bottom" id="l1K-0N-G0b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wc4-dm-ljW"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="RVe-1z-AdD" id="HNH-4H-3w5"/>
+                        <outlet property="tableView" destination="ROk-Tr-jnx" id="9LT-Ug-vrK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LP-00-OHx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="-637"/>
+        </scene>
         <!--Country Detail Table View Controller-->
         <scene sceneID="mUp-MT-11E">
             <objects>
