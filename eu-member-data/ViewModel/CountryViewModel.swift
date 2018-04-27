@@ -8,12 +8,23 @@
 
 import Foundation
 
-typealias CountryDataRow = (title: String, value: String)
+typealias CountryDataRow = (title: String, value: String, actionable: Bool)
 
 enum Section: Int {
     case basic
     case capital
     case joined
+    
+    func caption() -> String {
+        switch self {
+        case .basic:
+            return "Basic info"
+        case .capital:
+            return "Capital city"
+        case .joined:
+            return "Join dates"
+        }
+    }
     
     static var count: Int {
         return 3
@@ -31,18 +42,7 @@ class CountryViewModel {
     var numberOfSections: Int {
         return 3
     }
-    
-    func numberOfRowsInSection(section: Section) -> Int {
-        switch section {
-        case .basic:
-            return 2
-        case .capital:
-            return 0
-        case .joined:
-            return 0
-        }
-    }
-    
+        
     func data(in section: Section) -> [CountryDataRow] {
         switch section {
         case .basic:
@@ -55,17 +55,27 @@ class CountryViewModel {
     }
     
     private var basicData: [CountryDataRow] {
-        return [("Area", String(country.area)),
-                ("Population", String(country.population.population) + " (" + String(country.population.year) + ")"),
-                ("Country Code", country.code),
-                ("Currency", country.currency)]
+        return [("Area", String(country.area), false),
+                ("Population", String(country.population.population) + " (" + String(country.population.year) + ")", false),
+                ("Country Code", country.code, false),
+                ("Currency", country.currency, false)]
     }
     
     private var capitalData: [CountryDataRow] {
-        return []
+        return [("Name", country.capital.name[Utils.userLang]!, true),
+                ("Latitude", String(format: "%4f", country.capital.coordinate.latitude), false),
+                ("Longitude", String(format: "%4f", country.capital.coordinate.longitude), false)]
     }
     
     private var joinedData: [CountryDataRow] {
-        return []
+        var ret: [CountryDataRow] = []
+        ret.append(("Union", Utils.defaultDateFormatter.string(from: Utils.isoDateFormatter.date(from: country.joined.union)!), false))
+        if !country.joined.euro.isEmpty {
+            ret.append(("Euro", Utils.defaultDateFormatter.string(from: Utils.isoDateFormatter.date(from: country.joined.euro)!), false))
+        }
+        if !country.joined.schengen.isEmpty {
+            ret.append(("Schengen", Utils.defaultDateFormatter.string(from: Utils.isoDateFormatter.date(from: country.joined.schengen)!), false))
+        }
+        return ret
     }
 }

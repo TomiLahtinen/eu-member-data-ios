@@ -169,7 +169,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HG-HJ-cUl">
                                 <rect key="frame" x="0.0" y="230" width="375" height="437"/>
                                 <connections>
-                                    <segue destination="Fb5-BU-KWl" kind="embed" identifier="enbededCountryDetailsSegue" id="nbX-x0-XUb"/>
+                                    <segue destination="Fb5-BU-KWl" kind="embed" identifier="embededCountryDetailsSegue" id="nbX-x0-XUb"/>
                                 </connections>
                             </containerView>
                         </subviews>

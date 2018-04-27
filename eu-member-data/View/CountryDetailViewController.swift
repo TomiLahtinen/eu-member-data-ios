@@ -32,7 +32,7 @@ class CountryDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "enbededCountryDetailsSegue" {
+        if segue.identifier == "embededCountryDetailsSegue" {
             let vc = segue.destination as! CountryDetailTableViewController
             vc.country = country
         }
@@ -40,6 +40,9 @@ class CountryDetailViewController: UIViewController {
 }
 
 class CountryDetailTableViewController: UITableViewController {
+    
+    private let actionableCell = "actionableCell"
+    private let nonActionableCell = "nonActionableCell"
     
     var country: Country!
     var viewModel: CountryViewModel?
@@ -50,6 +53,7 @@ class CountryDetailTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        debugPrint("sections", Section.count)
         return Section.count
     }
     
@@ -57,16 +61,25 @@ class CountryDetailTableViewController: UITableViewController {
         guard let viewModel = self.viewModel else {
             return 0
         }
-        return viewModel.numberOfRowsInSection(section: Section(rawValue: section)!)
+        let data = viewModel.data(in: Section(rawValue: section)!)
+        return data.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Section(rawValue: section)!.caption()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel?.data(in: Section(rawValue: indexPath.section)!)
+        debugPrint("data in section", indexPath.section, data)
         let countryDataRow = data![indexPath.row]
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CountryDetailCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: countryDataRow.actionable ? actionableCell : nonActionableCell)
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: "CountryDetailCell")
+            cell = UITableViewCell(style: UITableViewCellStyle.value2, reuseIdentifier: countryDataRow.actionable ? actionableCell : nonActionableCell)
+            if countryDataRow.actionable {
+                cell?.accessoryType = UITableViewCellAccessoryType.detailButton
+            }
         }
         cell?.textLabel?.text = countryDataRow.title
         cell?.detailTextLabel?.text = countryDataRow.value

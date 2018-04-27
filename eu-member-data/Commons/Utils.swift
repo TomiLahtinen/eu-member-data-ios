@@ -14,6 +14,12 @@ struct Utils {
         return Bundle.main.preferredLocalizations.first ?? "en" // Fallback to english
     }
     
+    static var defaultDateFormatter: DateFormatter = {
+       let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        return dateFormatter
+    }()
+    
     static var isoDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
