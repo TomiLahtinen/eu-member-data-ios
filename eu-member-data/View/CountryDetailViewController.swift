@@ -71,7 +71,7 @@ class CountryDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel?.data(in: Section(rawValue: indexPath.section)!)
-        debugPrint("data in section", indexPath.section, data)
+        debugPrint("data in section", indexPath.section, data ?? "")
         let countryDataRow = data![indexPath.row]
         
         var cell = tableView.dequeueReusableCell(withIdentifier: countryDataRow.actionable ? actionableCell : nonActionableCell)
