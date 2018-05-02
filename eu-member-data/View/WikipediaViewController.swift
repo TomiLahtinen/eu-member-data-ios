@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import WebKit
 
-class WikipediaViewController: UIViewController, WKUIDelegate {
+class WikipediaViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var webView: WKWebView!
     
     var country: Country!
@@ -20,6 +20,7 @@ class WikipediaViewController: UIViewController, WKUIDelegate {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
+        webView.navigationDelegate = self
         view = webView
         let userLang = Utils.userLang
         debugPrint("User language", userLang)
@@ -28,7 +29,15 @@ class WikipediaViewController: UIViewController, WKUIDelegate {
         webView.load(URLRequest(url: url))
     }
     
-    // TODO: Remove these nodes from Wikipedia page to make it look betterS
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("") { (anything, error) in
+            debugPrint("Anything", anything, "error", error)
+        }
+    }
+    
+
+    
+    // TODO: Remove these nodes from Wikipedia page to make it look betterweb
     // <nav id="mw-mf-page-left" class="navigation-drawer view-border-box">
     // <div class="header-container header-chrome">
 }

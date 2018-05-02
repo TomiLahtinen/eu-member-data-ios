@@ -16,6 +16,8 @@
 		567F22962093394000FF103A /* WikipediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F22952093394000FF103A /* WikipediaViewController.swift */; };
 		567F22982099A55F00FF103A /* TestCountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F22972099A55F00FF103A /* TestCountriesViewModel.swift */; };
 		567F229A2099ACDD00FF103A /* CountriesViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F22992099ACDD00FF103A /* CountriesViewControllerTest.swift */; };
+		567F229E2099EAE800FF103A /* RemoveElement.js in Resources */ = {isa = PBXBuildFile; fileRef = 567F229D2099EAE800FF103A /* RemoveElement.js */; };
+		567F22A02099EB4F00FF103A /* JSBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F229F2099EB4F00FF103A /* JSBridge.swift */; };
 		56ECC1BB203DC856009D1FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1BA203DC856009D1FA9 /* AppDelegate.swift */; };
 		56ECC1BD203DC856009D1FA9 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1BC203DC856009D1FA9 /* CountriesViewController.swift */; };
 		56ECC1C0203DC856009D1FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1BE203DC856009D1FA9 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		567F22952093394000FF103A /* WikipediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewController.swift; sourceTree = "<group>"; };
 		567F22972099A55F00FF103A /* TestCountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCountriesViewModel.swift; sourceTree = "<group>"; };
 		567F22992099ACDD00FF103A /* CountriesViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewControllerTest.swift; sourceTree = "<group>"; };
+		567F229D2099EAE800FF103A /* RemoveElement.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = RemoveElement.js; sourceTree = "<group>"; };
+		567F229F2099EB4F00FF103A /* JSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
 		56ECC1B7203DC856009D1FA9 /* eu-member-data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eu-member-data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56ECC1BA203DC856009D1FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56ECC1BC203DC856009D1FA9 /* CountriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		567F229C2099EAC800FF103A /* JavaScript */ = {
+			isa = PBXGroup;
+			children = (
+				567F229D2099EAE800FF103A /* RemoveElement.js */,
+				567F229F2099EB4F00FF103A /* JSBridge.swift */,
+			);
+			path = JavaScript;
+			sourceTree = "<group>";
+		};
 		56ECC1AE203DC856009D1FA9 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 		56ECC1B9203DC856009D1FA9 /* eu-member-data */ = {
 			isa = PBXGroup;
 			children = (
+				567F229C2099EAC800FF103A /* JavaScript */,
 				5635174820404B6B008588D6 /* Commons */,
 				56ECC1EF203DF9BD009D1FA9 /* ViewModel */,
 				56ECC1EE203DF752009D1FA9 /* View */,
@@ -305,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				567F229E2099EAE800FF103A /* RemoveElement.js in Resources */,
 				56ECC1C5203DC856009D1FA9 /* LaunchScreen.storyboard in Resources */,
 				56ECC1C2203DC856009D1FA9 /* Assets.xcassets in Resources */,
 				56ECC1C0203DC856009D1FA9 /* Main.storyboard in Resources */,
@@ -338,6 +353,7 @@
 				56ECC1F1203DF9E6009D1FA9 /* CountriesViewModel.swift in Sources */,
 				5635174A20404B7E008588D6 /* Flags.swift in Sources */,
 				567F22922093033C00FF103A /* MapViewController.swift in Sources */,
+				567F22A02099EB4F00FF103A /* JSBridge.swift in Sources */,
 				567F22902091FA4300FF103A /* CountryViewModel.swift in Sources */,
 				567F22962093394000FF103A /* WikipediaViewController.swift in Sources */,
 				567F228C2091E9B300FF103A /* Utils.swift in Sources */,
