@@ -21,8 +21,6 @@
 		56ECC1C0203DC856009D1FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1BE203DC856009D1FA9 /* Main.storyboard */; };
 		56ECC1C2203DC856009D1FA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1C1203DC856009D1FA9 /* Assets.xcassets */; };
 		56ECC1C5203DC856009D1FA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1C3203DC856009D1FA9 /* LaunchScreen.storyboard */; };
-		56ECC1D0203DC856009D1FA9 /* eu_member_dataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1CF203DC856009D1FA9 /* eu_member_dataTests.swift */; };
-		56ECC1DB203DC856009D1FA9 /* eu_member_dataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1DA203DC856009D1FA9 /* eu_member_dataUITests.swift */; };
 		56ECC1EA203DC870009D1FA9 /* eudata.json in Resources */ = {isa = PBXBuildFile; fileRef = 56ECC1E9203DC870009D1FA9 /* eudata.json */; };
 		56ECC1F1203DF9E6009D1FA9 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1F0203DF9E6009D1FA9 /* CountriesViewModel.swift */; };
 		56ECC1F3203DFD40009D1FA9 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ECC1F2203DFD40009D1FA9 /* Country.swift */; };
@@ -64,10 +62,8 @@
 		56ECC1C4203DC856009D1FA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56ECC1C6203DC856009D1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56ECC1CB203DC856009D1FA9 /* eu-member-dataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eu-member-dataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56ECC1CF203DC856009D1FA9 /* eu_member_dataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eu_member_dataTests.swift; sourceTree = "<group>"; };
 		56ECC1D1203DC856009D1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56ECC1D6203DC856009D1FA9 /* eu-member-dataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eu-member-dataUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56ECC1DA203DC856009D1FA9 /* eu_member_dataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eu_member_dataUITests.swift; sourceTree = "<group>"; };
 		56ECC1DC203DC856009D1FA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56ECC1E9203DC870009D1FA9 /* eudata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eudata.json; sourceTree = "<group>"; };
 		56ECC1F0203DF9E6009D1FA9 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 		56ECC1CE203DC856009D1FA9 /* eu-member-dataTests */ = {
 			isa = PBXGroup;
 			children = (
-				56ECC1CF203DC856009D1FA9 /* eu_member_dataTests.swift */,
 				56ECC1D1203DC856009D1FA9 /* Info.plist */,
 				567F22972099A55F00FF103A /* TestCountriesViewModel.swift */,
 			);
@@ -157,7 +152,6 @@
 		56ECC1D9203DC856009D1FA9 /* eu-member-dataUITests */ = {
 			isa = PBXGroup;
 			children = (
-				56ECC1DA203DC856009D1FA9 /* eu_member_dataUITests.swift */,
 				56ECC1DC203DC856009D1FA9 /* Info.plist */,
 				567F22992099ACDD00FF103A /* CountriesViewControllerTest.swift */,
 			);
@@ -358,7 +352,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56ECC1D0203DC856009D1FA9 /* eu_member_dataTests.swift in Sources */,
 				567F22982099A55F00FF103A /* TestCountriesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +360,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56ECC1DB203DC856009D1FA9 /* eu_member_dataUITests.swift in Sources */,
 				567F229A2099ACDD00FF103A /* CountriesViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
