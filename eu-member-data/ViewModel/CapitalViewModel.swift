@@ -51,7 +51,6 @@ class CapitalViewModel {
             .sorted() { first, second -> Bool in
                 return first.1 < second.1
             }
-        debugPrint("capital distances", capitalDistances)
         distancesUpdated()
     }
 }
