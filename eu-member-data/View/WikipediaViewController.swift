@@ -28,7 +28,7 @@ class WikipediaViewController: UIViewController, WKUIDelegate {
         webView.load(URLRequest(url: url))
     }
     
-    // TODO: Remove these nodes from Wikipedia page to make it look better
+    // TODO: Remove these nodes from Wikipedia page to make it look betterS
     // <nav id="mw-mf-page-left" class="navigation-drawer view-border-box">
     // <div class="header-container header-chrome">
 }
