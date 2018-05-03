@@ -12,7 +12,7 @@ import UIKit
 class CountryDetailViewController: UIViewController {
 
     var country: Country!
-    var viewModel: CountryViewModel?
+    var viewModel: CountryViewModelProtocol!
     
     var tableViewController: CountryDetailTableViewController?
     
@@ -20,7 +20,6 @@ class CountryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CountryViewModel(country: country)
         populateCountry()
     }
     
@@ -32,9 +31,11 @@ class CountryDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        self.viewModel = CountryViewModel(withCountry: country)
+        
         if segue.identifier == "embededCountryDetailsSegue" {
             let vc = segue.destination as! CountryDetailTableViewController
-            vc.country = country
+            vc.viewModel = self.viewModel
         }
     }
 }
@@ -44,24 +45,21 @@ class CountryDetailTableViewController: UITableViewController {
     private let actionableCell = "actionableCell"
     private let nonActionableCell = "nonActionableCell"
     
-    var country: Country!
-    var viewModel: CountryViewModel?
+    var viewModel: CountryViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = CountryViewModel(country: country)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        debugPrint("sections", Section.count)
-        return Section.count
+        return viewModel.numberOfSections
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = self.viewModel else {
             return 0
         }
-        let data = viewModel.data(in: Section(rawValue: section)!)
+        let data = viewModel.data(forSection: Section(rawValue: section)!)
         return data.count
     }
     
@@ -70,9 +68,9 @@ class CountryDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = viewModel?.data(in: Section(rawValue: indexPath.section)!)
-        debugPrint("data in section", indexPath.section, data ?? "")
-        let countryDataRow = data![indexPath.row]
+        let data = viewModel.data(forSection: Section(rawValue: indexPath.section)!)
+        debugPrint("data in section", indexPath.section, data)
+        let countryDataRow = data[indexPath.row]
         
         var cell = tableView.dequeueReusableCell(withIdentifier: countryDataRow.actionable ? actionableCell : nonActionableCell)
         if cell == nil {
@@ -87,7 +85,7 @@ class CountryDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let data = viewModel?.data(in: Section(rawValue: indexPath.section)!)
+        let data = viewModel?.data(forSection: Section(rawValue: indexPath.section)!)
         let dataRow = data![indexPath.row]
         if dataRow.title == "Name" {
             instantiateAndPresentMapView()
@@ -104,7 +102,7 @@ class CountryDetailTableViewController: UITableViewController {
             debugPrint("We have some serious issues with MapViewController")
             fatalError()
         }
-        mapViewController.country = self.country
+        mapViewController.country = viewModel.country
         self.navigationController?.pushViewController(mapViewController, animated: true)
     }
     
@@ -115,7 +113,7 @@ class CountryDetailTableViewController: UITableViewController {
             debugPrint("We have some serious issues with WikipediaViewController")
             fatalError()
         }
-        wikiVC.country = self.country
+        wikiVC.country = viewModel.country
         self.navigationController?.pushViewController(wikiVC, animated: true)
     }
 }

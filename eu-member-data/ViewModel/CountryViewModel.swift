@@ -10,10 +10,21 @@ import Foundation
 
 typealias CountryDataRow = (title: String, value: String, actionable: Bool)
 
+protocol CountryViewModelProtocol {
+    
+    init(withCountry country: Country)
+    func data(forSection section: Section) -> [CountryDataRow]
+    
+    var country: Country { get }
+    var numberOfSections: Int { get }
+}
+
 enum Section: Int {
+    
     case basic
     case capital
     case joined
+    case Count // Not sure if..
     
     func caption() -> String {
         switch self {
@@ -23,34 +34,34 @@ enum Section: Int {
             return "Capital city"
         case .joined:
             return "Join dates"
+        default:
+            return ""
         }
-    }
-    
-    static var count: Int {
-        return 3
     }
 }
 
-class CountryViewModel {
+class CountryViewModel: CountryViewModelProtocol {
     
     let country: Country
     
-    init(country: Country) {
+    required init(withCountry country: Country) {
         self.country = country
     }
     
     var numberOfSections: Int {
-        return 3
+        return Section.Count.rawValue
     }
         
-    func data(in section: Section) -> [CountryDataRow] {
+    func data(forSection section: Section) -> [CountryDataRow] {
         switch section {
-        case .basic:
-            return basicData
-        case .capital:
-            return capitalData
-        case .joined:
-            return joinedData
+            case .basic:
+                return basicData
+            case .capital:
+                return capitalData
+            case .joined:
+                return joinedData
+            default:
+                return []
         }
     }
     
